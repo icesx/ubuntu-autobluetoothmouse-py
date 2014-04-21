@@ -21,5 +21,5 @@ script note:
    start pc to search mouse
    
 2、bluetoothXset.py
-
+ 
    set the mouse speed when mouse connected
