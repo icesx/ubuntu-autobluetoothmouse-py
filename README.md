@@ -9,9 +9,9 @@ how to use?
 
 1、install hidd use the command #sudo apt-get install bluez-compat.if your mouse is not 
 
-2、edit your /etc/rc.local,add bluetoothMouseAutoCon.py 's full path
+2、edit your /etc/rc.local,add bluetoothMouseAutoCon.py 's full path,donot forgot to add the "&" on end
 
-3、edit your ～.profile, add bluetoothXset 's full path
+3、edit your ～.profile, add bluetoothXset 's full path,donot forgot to add the "&" on end
 
 4、reboot your pc then all is ok.if no ,please check your mouse and press the connect button.
 
