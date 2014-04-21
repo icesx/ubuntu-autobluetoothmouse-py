@@ -16,7 +16,7 @@ how to use?
 4、reboot your pc then all is ok.if no ,please check your mouse and press the connect button.
 
 script note:
-1、bluetoothMouseAutoCon.py
+1、bluetoothMouseAutoCon.py 
 
    start pc to search mouse
    
