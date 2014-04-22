@@ -29,23 +29,23 @@ class blutooth_mouse:
         os.system("hidd --server")
         logger.info("hidd server started")
     def hidd_search(self):
-        cmd = "hidd --search"
+        cmd = "hidd --search" 
         p = sub.Popen(cmd, stdout=sub.PIPE, stderr=sub.PIPE, shell=True)
         p.wait()
         output = p.stdout.read()
         logger.info("search result is " + output)
     @staticmethod
-    def ismouse_on():
-        cmd = "dmesg"
+    def ismouse_on(): 
+        cmd = "dmesg" 
         try:
             p = sub.Popen(cmd, stdout=sub.PIPE, stderr=sub.PIPE, shell=True)
             mouse_status = p.communicate()[0].rstrip()
             logger.info("mouse_status is " + mouse_status);
             if blutooth_mouse.mouse_name in mouse_status:
-                logger.info("blutooth_mouse.mouse_name in mouse_status is True");
+                #logger.info("blutooth_mouse.mouse_name in mouse_status is True");
                 return True
             else:
-                logger.info("blutooth_mouse.mouse_name in mouse_status is False" );
+                #logger.info("blutooth_mouse.mouse_name in mouse_status is False" );
                 return False
         except:
             logger.info("error")

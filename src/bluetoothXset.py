@@ -14,6 +14,6 @@ while True:
     if blutooth_mouse.ismouse_on() == True:
         os.system("xset m 2 10")
         logger.info("xset m 2 10 is ok!")
-        break
-    else:
+        break 
+    else: 
         time.sleep(3);
