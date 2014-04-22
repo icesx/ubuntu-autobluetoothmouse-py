@@ -5,7 +5,7 @@ Created on 2014年4月19日
 
 @author: i
 '''
-import os
+import os 
 import time
 from bluetoothMouseAutoCon import blutooth_mouse
 import log4py.log4py as log4py
@@ -14,6 +14,6 @@ while True:
     if blutooth_mouse.ismouse_on() == True:
         os.system("xset m 2 10")
         logger.info("xset m 2 10 is ok!")
-        break
-    else:
+        break 
+    else: 
         time.sleep(3);
