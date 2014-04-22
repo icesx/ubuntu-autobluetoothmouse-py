@@ -7,38 +7,47 @@ Created on 2014年4月19日
 '''
 import os
 import time
-import sys
+import subprocess as sub
 import log4py.log4py as log4py
+logger = log4py.Logger().get_instance()
 class blutooth_mouse:
-    mouse_name = "Logitech Bluetooth Wireless Mouse"
+    mouse_name = "Mouse [Logitech Bluetooth Wireless Mouse] on"
     def __init__(self):
-        self.logger = log4py.Logger().get_instance(self)
+        logger.info("starte all......")
         self.hidd_server()
         self.check_blutooth_mouse()
-        self.logger.info("start all......")
-        self.logger.info("sys exit!")
-        sys.exit()
+        logger.info("started all......")
     def check_blutooth_mouse(self):
         while True:
             if self.ismouse_on() == True:
-                self.logger.info("mouse is on")
+                logger.info("mouse is on")
                 break
             else:
                 self.hidd_search();
                 time.sleep(3)
     def hidd_server(self):
         os.system("hidd --server")
-        self.logger.info("hidd server started")
+        logger.info("hidd server started")
     def hidd_search(self):
-        search_result = os.popen("hidd --search").read()
-        self.logger.info("search result is " + search_result)
-        self.logger.info(search_result)
+        cmd = "hidd --search"
+        p = sub.Popen(cmd, stdout=sub.PIPE, stderr=sub.PIPE, shell=True)
+        p.wait()
+        output = p.stdout.read()
+        logger.info("search result is " + output)
     @staticmethod
     def ismouse_on():
-        mouse_status = os.popen("xinput --list").read()
-        if blutooth_mouse.mouse_name in mouse_status:
-            return True
-        else:
-            return False
+        cmd = "dmesg"
+        try:
+            p = sub.Popen(cmd, stdout=sub.PIPE, stderr=sub.PIPE, shell=True)
+            mouse_status = p.communicate()[0].rstrip()
+            logger.info("mouse_status is " + mouse_status);
+            if blutooth_mouse.mouse_name in mouse_status:
+                logger.info("blutooth_mouse.mouse_name in mouse_status is True");
+                return True
+            else:
+                logger.info("blutooth_mouse.mouse_name in mouse_status is False" );
+                return False
+        except:
+            logger.info("error")
 if __name__ == "__main__":
     blutooth_mouse()
