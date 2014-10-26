@@ -60,6 +60,7 @@ CONFIGURATION_FILES = {}
 CONFIGURATION_FILES[1] = "log4py.conf"                    # local directory
 CONFIGURATION_FILES[2] = "$HOME/.log4py.conf"             # hidden file in the home directory
 CONFIGURATION_FILES[3] = "/etc/log4py.conf"               # system wide file
+CONFIGURATION_FILES[4]="/ICESX/ICESX/workSpacePython/ubuntu-autobluetoothmouse-py/src/log4py/log4py.conf"
 
 # Constants for the FileAppender
 ROTATE_NONE = 0
