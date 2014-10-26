@@ -5,7 +5,7 @@ Created on 2014年4月19日
 
 @author: i
 '''
-import os 
+import os
 import time
 from bluetoothMouseAutoCon import blutooth_mouse
 import log4py.log4py as log4py
