@@ -17,14 +17,16 @@ class blutooth_mouse:
         self.hidd_server()
         self.check_blutooth_mouse()
         logger.info("started all......")
+        self.times=0
     def check_blutooth_mouse(self):
-        while True:
+        while self.times<10:
             if self.ismouse_on() == True:
                 logger.info("mouse is on")
                 break
             else:
-                self.hidd_search();
+                self.hidd_search()
                 time.sleep(3)
+                self.times+=1
     def hidd_server(self):
         os.system("hidd --server")
         logger.info("hidd server started")
