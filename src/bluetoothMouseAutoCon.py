@@ -11,13 +11,13 @@ import subprocess as sub
 import log4py.log4py as log4py
 logger = log4py.Logger().get_instance()
 class blutooth_mouse:
-    mouse_name = "Mouse [Logitech Bluetooth Wireless Mouse] on"
+    mouse_name = "Logitech Bluetooth Wireless Mouse"
     def __init__(self):
         logger.info("starte all......")
-        self.hidd_server()
+        #self.hidd_server()
+        self.times=0
         self.check_blutooth_mouse()
         logger.info("started all......")
-        self.times=0
     def check_blutooth_mouse(self):
         while self.times<10:
             if self.ismouse_on() == True:
@@ -38,16 +38,16 @@ class blutooth_mouse:
         logger.info("search result is " + output)
     @staticmethod
     def ismouse_on(): 
-        cmd = "dmesg" 
+        cmd = "hidd" 
         try:
             p = sub.Popen(cmd, stdout=sub.PIPE, stderr=sub.PIPE, shell=True)
             mouse_status = p.communicate()[0].rstrip()
             logger.info("mouse_status is " + mouse_status);
             if blutooth_mouse.mouse_name in mouse_status:
-                #logger.info("blutooth_mouse.mouse_name in mouse_status is True");
+                logger.info("blutooth_mouse.mouse_name in mouse_status is True");
                 return True
             else:
-                #logger.info("blutooth_mouse.mouse_name in mouse_status is False" );
+                logger.info("blutooth_mouse.mouse_name in mouse_status is False" );
                 return False
         except:
             logger.info("error")
