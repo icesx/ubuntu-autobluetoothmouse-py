@@ -4,7 +4,7 @@ ubuntu-autobluetoothmouse-py
 python script to auto connect bluetooth mouse when pc booted on ubuntu14 tested.
 
 how to use?
-
+ 
 0、Manual connect your mouse with pc first
 
 1、find your mouse addr as "00:1F:20:D4:D8:59" then edit bluetoothMouseAutoCon.py to change mouse_addr = "00:1F:20:D4:D8:59" as yourself.
